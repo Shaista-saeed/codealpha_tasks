@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my_gallery</title>
+    <link rel="stylesheet" href="gall.css">
+
+    <style>
+    .gallery-header {
+        width: 80%;
+        margin: 40px auto 20px;
+        padding: 20px;
+        background-color: pink;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        color: #333;
+    }
+</style>
+
+</head>
+<body>
+
+    <div class="gallery-header">
+        🎨 Welcome to My Art Gallery 🖼️✨
+    </div>
+
+    <div class="img_gallery" > 
+        <img src="pic1.jpg" onclick="openfullImg(this.src)">
+        <img src="pic2.jpg" onclick="openfullImg(this.src)">
+        <img src="pic3.jpg" onclick="openfullImg(this.src)">
+        <img src="pic4.jpg" onclick="openfullImg(this.src)">
+        <img src="pic5.jpg" onclick="openfullImg(this.src)">
+        <img src="pic6.jpg" onclick="openfullImg(this.src)">
+        <img src="pic7.jpg" onclick="openfullImg(this.src)">
+        <img src="pic8.jpg" onclick="openfullImg(this.src)">
+        <img src="pic9.jpg" onclick="openfullImg(this.src)">
+        <img src="pic10.jpg" onclick="openfullImg(this.src)">
+        <img src="pic11.jpg" onclick="openfullImg(this.src)">
+        <img src="pic12.jpg" onclick="openfullImg(this.src)">
+        
+    </div>
+
+    <div class="full-img" id="fullImgBox">
+        <img src="pic1.jpg" id="fullImg">
+        <span onclick="closefullImg()">X</span>
+    </div>
+
+<script>
+    var fullImgBox = document.getElementById("fullImgBox") ;
+    var fullImg = document.getElementById("fullImg") ;
+
+    function openfullImg(pic){
+
+        fullImgBox.style.display = "flex"  ;
+        fullImg.src = pic ;
+    }
+
+    function closefullImg (pic){
+        fullImgBox.style.display = "none" 
+    }
+</script>
+
+
+</body>
+</html>

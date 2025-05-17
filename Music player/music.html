@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music_player</title>
+    <link rel="stylesheet" href="music.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="music_player">
+            <nav>
+                <div class="circle">
+                    <i class="fa-solid fa-angle-left"></i>
+                </div>
+                 <div class="circle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+            <img src="pic1.jpeg" class="song-img">
+            <h1>Revive the light</h1>
+            <p1>Rayan Stasik</p1>
+            <audio controls id="song">
+               <source src="Revive The Light - Ryan Stasik, Kanika Moore.mp3" type="audio/mpeg">
+            </audio>
+            <input type="range" value="0" id="progress">
+            <div class="control" id="ctrlIcon">
+                <div><i class="fa-solid fa-backward"></i> </div>
+                <div onclick="playPause()"><i class="fa-solid fa-play"></i> </div>
+                <div><i class="fa-solid fa-forward"></i> </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    const progress = document.getElementById("progress");
+    const song = document.getElementById("song");
+    const playBtnIcon = document.querySelector("#ctrlIcon div:nth-child(2) i");
+
+    song.onloadedmetadata = function () {
+        progress.max = song.duration;
+        progress.value = song.currentTime;
+    };
+
+    function playPause() {
+        if (playBtnIcon.classList.contains("fa-pause")) {
+            song.pause();
+            playBtnIcon.classList.remove("fa-pause");
+            playBtnIcon.classList.add("fa-play");
+        } else {
+            song.play();
+            playBtnIcon.classList.remove("fa-play");
+            playBtnIcon.classList.add("fa-pause");
+        }
+    }
+
+    setInterval(() => {
+        if (!isNaN(song.duration)) {
+            progress.value = song.currentTime;
+        }
+    }, 500);
+
+    progress.onchange = function () {
+        song.currentTime = progress.value;
+        song.play();
+        playBtnIcon.classList.remove("fa-play");
+        playBtnIcon.classList.add("fa-pause");
+    };
+</script>
+
+</body>
+</html> 
